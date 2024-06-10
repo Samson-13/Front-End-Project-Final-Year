@@ -1,7 +1,48 @@
-<template>
-  <div>
+<style>
+.custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-right: 20px; /* Adjust this to increase/decrease spacing */
+}
+
+.custom-file-upload:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.upload-button {
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: #28a745;
+  color: white;
+  border: 1px solid #28a745;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-left: 20px; /* Adjust this to increase/decrease spacing */
+}
+
+.upload-button:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.file-upload {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+
+<template style="text-align: center">
+  <div style="text-align: center; margin-top: 5%">
     <div class="vertical-centre">
-      <img v-if="imagePreview" :src="imagePreview" alt="Image" width="200" />
+      <img v-if="imagePreview" :src="imagePreview" alt="Image" width="300" />
       <img
         v-else
         src="https://static.thenounproject.com/png/187803-200.png"
@@ -9,14 +50,22 @@
         width="200"
       />
     </div>
-    <form @submit.prevent="uploadFile">
+    <form @submit.prevent="uploadFile" style="color: black">
       <div class="file-upload">
-        <input type="file" id="fileInput" @change="handleFileUpload" />
+        <input
+          type="file"
+          id="fileInput"
+          @change="handleFileUpload"
+          style="display: none"
+        />
+        <label for="fileInput" class="custom-file-upload">Choose File</label>
+        <button type="submit" class="upload-button">Upload</button>
       </div>
-      <button type="submit">Upload</button>
     </form>
 
-    <div v-if="prediction">The predicted value is: {{ prediction }}</div>
+    <div v-if="prediction" style="text-align: center; margin-top: 30px">
+      The predicted value is: {{ prediction }}
+    </div>
   </div>
 </template>
 
