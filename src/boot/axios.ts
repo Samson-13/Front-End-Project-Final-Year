@@ -17,13 +17,18 @@ declare module '@vue/runtime-core' {
 
 // My Hotspot
 // const api = axios.create({ baseURL: 'http://192.168.235.240:8000' });
+// const api = axios.create({ baseURL: 'http://192.168.216.240:8000' });
 // const api = axios.create({ baseURL: 'http://192.168.0.240:8000' });
 
 // Sep Wifi
 // const api = axios.create({ baseURL: 'http://192.168.29.125:8000' });
 
 // Samson Wifi 192.168.0.107
-const api = axios.create({ baseURL: 'http://192.168.0.107:9001' });
+const api = axios.create({ baseURL: 'http://192.168.0.107:9000' });
+// const api = axios.create({ baseURL: 'http://192.168.0.107:8000' });
+
+// Zuala Wifi 192.168.0.179
+// const api = axios.create({ baseURL: 'http://192.168.0.179:8000' });
 // const api = axios.create({ baseURL: 'http:// 192.168.0.1:8000' });
 
 export default boot(({ app }) => {

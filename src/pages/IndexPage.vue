@@ -37,6 +37,17 @@
   justify-content: center;
   align-items: center;
 }
+
+#videoElement {
+  width: 300px;
+  height: 225px;
+  border: 1px solid black;
+  margin-top: 10px;
+}
+
+#canvasElement {
+  display: none;
+}
 </style>
 
 <template style="text-align: center">
@@ -59,7 +70,6 @@
           style="display: none"
         />
         <label for="fileInput" class="custom-file-upload">Choose File</label>
-        <button type="submit" class="upload-button">Upload</button>
       </div>
     </form>
 
@@ -78,6 +88,8 @@ const items = ref([]);
 const selectedFile = ref(null);
 const imagePreview = ref(null);
 const prediction = ref('');
+const videoElement = ref(null);
+const canvasElement = ref(null);
 
 // Function to fetch data from backend
 async function fetchData() {
@@ -95,6 +107,7 @@ function handleFileUpload(event) {
   if (file) {
     selectedFile.value = file;
     imagePreview.value = URL.createObjectURL(file);
+    uploadFile(); // Trigger the file upload immediately after selection
   }
 }
 
@@ -125,5 +138,9 @@ async function uploadFile() {
 }
 
 // Fetch data when the component is mounted
-onMounted(fetchData);
+onMounted(() => {
+  fetchData();
+  videoElement.value = document.getElementById('videoElement');
+  canvasElement.value = document.getElementById('canvasElement');
+});
 </script>

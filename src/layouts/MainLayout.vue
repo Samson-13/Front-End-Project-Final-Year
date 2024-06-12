@@ -48,13 +48,11 @@ defineOptions({
 const linksList: EssentialLinkProps[] = [
   {
     title: 'History',
-    caption: 'github.com/quasarframework',
     icon: 'history',
     link: 'https://github.com/quasarframework',
   },
   {
     title: 'About us',
-    caption: 'chat.quasar.dev',
     icon: 'info',
     link: 'https://sites.google.com/view/intelligesturesai?usp=sharing',
   },
